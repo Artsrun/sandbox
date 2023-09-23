@@ -4,23 +4,29 @@ const slides = [
         title: "The Magical World of Caching & Service Workers 🪄",
         subtitle: "",
         content: "",
-        img: "" // Link to your image, e.g., "images/wizard_hat.png"
+        img: "https://via.placeholder.com/200" // Example placeholder image
     },
     {
         title: "Why Do We Cache?",
         subtitle: "Because the internet's not always on steroids! 🐢 vs 🚀",
         content: "",
-        img: "" // And so on for other images...
+        img: "https://via.placeholder.com/200" 
     },
     // ... Add all other slides in this format ...
 ];
 
 function updateSlide() {
-    const slide = slides[currentSlide];
-    document.getElementById("slide").querySelector("h1").innerText = slide.title;
-    document.getElementById("slide").querySelector("h2").innerText = slide.subtitle;
-    document.getElementById("slide").querySelector("p").innerText = slide.content;
-    document.getElementById("slide").querySelector("img").src = slide.img;
+    const slideElement = document.getElementById("slide");
+    slideElement.classList.remove("active"); // Remove active to reset animation
+
+    setTimeout(() => {
+        const slide = slides[currentSlide];
+        slideElement.querySelector("h1").innerText = slide.title;
+        slideElement.querySelector("h2").innerText = slide.subtitle;
+        slideElement.querySelector("p").innerText = slide.content;
+        slideElement.querySelector("img").src = slide.img;
+        slideElement.classList.add("active"); // Add active for animation
+    }, 500); // Delay to match the CSS transition time
 }
 
 document.getElementById("next").addEventListener("click", function() {
