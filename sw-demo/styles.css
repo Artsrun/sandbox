@@ -36,3 +36,77 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+/* ... Previous CSS ... */
+
+
+.extra-info img {
+    max-width: 100%;
+    margin-top: 15px;
+}
+
+.extra-info.show {
+    max-height: 300px;  /* You might need to adjust this depending on the content height */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* ... Existing CSS ... */
+
+/* Styles for the parchment effect */
+.extra-info {
+    transform-origin: top;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: scaleY(0);
+    transition: opacity 0.3s, transform 0.3s, max-height 0.3s ease-in-out;
+    background: url('https://via.placeholder.com/400x10') repeat center top; /* Placeholder for a parchment-like texture, replace with a real image if you have one */
+    border: 1px solid #b5a577; /* To give it a more parchment-like look */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+
+}
+
+.extra-info.show {
+    max-height: 300px; /* Adjust if needed */
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/* Make sure children fade in after parchment effect */
+.extra-info > * {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.extra-info.show > * {
+    opacity: 1;
+}
+
+
+/* Add a wobble effect to make it feel like it's slightly affected by wind when unfurling */
+@keyframes wobble {
+    0% { transform: scaleY(0) translateX(0); }
+    40% { transform: scaleY(0.6) translateX(-5px); }
+    60% { transform: scaleY(0.8) translateX(5px); }
+    80% { transform: scaleY(0.95) translateX(-3px); }
+    100% { transform: scaleY(1) translateX(0); }
+}
+
+.extra-info.show {
+    animation: wobble 1s;
+    /* ... Existing styles ... */
+}
+
+/* Make the content inside scale up slightly as it appears */
+.extra-info > * {
+    transform: scale(0.9);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.extra-info.show > * {
+    transform: scale(1);
+}
+
+

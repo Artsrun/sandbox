@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,19 @@
     <title>Service Worker Demo Slideshow</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="slide" id="slide">
         <h1></h1>
         <h2></h2>
-        <p></p>
-        <img src="" alt="">
+        <img src="" alt="Image">
+        <div>
+            <button id="info-btn">Show more</button>
+        </div>
+        <div class="extra-info">
+            <p></p>
+            <img src="" alt="Extra Information Image">
+        </div>
     </div>
 
     <button id="prev">Previous</button>
@@ -20,4 +28,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
